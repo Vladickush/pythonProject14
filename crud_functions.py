@@ -1,7 +1,5 @@
-import sqlite3
+mport sqlite3
 
-connection = sqlite3.connect('database2.db')
-cursor = connection.cursor()
 
 def initiate_db():
     connection = sqlite3.connect('database2.db')
@@ -60,8 +58,15 @@ def is_included(username):
 
 # Выбрать продукты из базы
 def get_all_products():
+    connection = sqlite3.connect('database2.db')
+    cursor = connection.cursor()
+    
     cursor.execute('SELECT * FROM Products')
     products = cursor.fetchall()
     connection.commit()
     connection.close()
     return products
+
+
+
+
